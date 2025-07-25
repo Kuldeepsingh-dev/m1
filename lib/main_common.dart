@@ -14,11 +14,18 @@ import 'core/services/device_info_service.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'core/config/locale.dart'; 
+import 'core/firebase/firebase_notifications.dart';
 
 Future<void> mainCommon({required AppEnvironment env}) async {
   Env.setEnvironment(env); 
   WidgetsFlutterBinding.ensureInitialized();
   await setupServiceLocator();
+  
+
+  // Initialize Firebase Notifications
+  // final firebaseNotification = FirebaseNotificationService();
+  // await FirebaseNotificationService.init();
+  // getIt.registerSingleton<FirebaseNotificationService>(firebaseNotification);
 
   // Initialize and register DeviceInfoService
   final deviceInfoService = DeviceInfoService();
@@ -27,7 +34,7 @@ Future<void> mainCommon({required AppEnvironment env}) async {
 
   if (env == AppEnvironment.production) {
     ErrorWidget.builder = (FlutterErrorDetails details) =>
-        CustomErrorScreen(errorDetails: details);
+        ErrorScreen(errorDetails: details);
   }
 
   runApp(
@@ -35,7 +42,7 @@ Future<void> mainCommon({required AppEnvironment env}) async {
       designSize: const Size(375, 812), 
       minTextAdapt: true,
       builder: (context, child) => MultiBlocProvider(
-        providers: appBlocProviders, // or your list of providers
+        providers: appBlocProviders,
         child: MyApp(env: env),
       ),
     ),

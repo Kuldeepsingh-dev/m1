@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:logger/logger.dart';
 import 'package:m1/core/config/env.dart';
+import 'package:m1/core/utils/error_handler.dart';
 
 class ApiService {
   final Dio _dio;
@@ -61,7 +62,7 @@ class ApiService {
         options: Options(headers: headers),
       );
     } catch (e) {
-      rethrow;
+      throw ErrorHandler.getErrorMessage(e);
     }
   }
 
@@ -81,7 +82,7 @@ class ApiService {
         options: Options(headers: headers),
       );
     } catch (e) {
-      rethrow;
+      throw ErrorHandler.getErrorMessage(e);
     }
   }
 
@@ -101,7 +102,7 @@ class ApiService {
         options: Options(headers: headers),
       );
     } catch (e) {
-      rethrow;
+      throw ErrorHandler.getErrorMessage(e);
     }
   }
 
@@ -121,7 +122,7 @@ class ApiService {
         options: Options(headers: headers),
       );
     } catch (e) {
-      rethrow;
+      throw ErrorHandler.getErrorMessage(e);
     }
   }
 
@@ -150,7 +151,7 @@ class ApiService {
       final dataList = response.data[dataKey] as List;
       return dataList.map((e) => fromJson(e)).toList();
     } catch (e) {
-      rethrow;
+      throw ErrorHandler.getErrorMessage(e);
     }
   }
 }

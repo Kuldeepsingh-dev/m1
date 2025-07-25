@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:m1/core/bloc/locale_bloc.dart';
 import 'package:m1/core/bloc/theme_bloc.dart';
 import 'package:m1/shared/constants/app_strings.dart';
@@ -18,8 +19,8 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Welcome to the Home Screen!', style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 32),
-           ElevatedButton(
+            SizedBox(height: 32.h),
+            ElevatedButton(
                 onPressed: () {
                   context.read<ThemeBloc>().add(ToggleThemeEvent());
                 },

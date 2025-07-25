@@ -8,6 +8,7 @@ import 'package:m1/core/utils/ui_helpers.dart';
 import 'package:m1/shared/constants/app_strings.dart';
 import 'package:go_router/go_router.dart';
 import 'package:m1/core/routing/app_routes.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -20,11 +21,8 @@ class _LoginViewState extends State<LoginView> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
     return BlocProvider(
       create: (_) => LoginBloc(),
       child: BlocConsumer<LoginBloc, LoginState>(
@@ -41,7 +39,7 @@ class _LoginViewState extends State<LoginView> {
           return Scaffold(
             appBar: AppBar(title: const Text(AppStrings.loginTitle)),
             body: Padding(
-              padding: EdgeInsets.all(screenWidth * 0.04),
+              padding: EdgeInsets.all(16.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -49,13 +47,13 @@ class _LoginViewState extends State<LoginView> {
                     controller: emailController,
                     decoration: const InputDecoration(labelText: AppStrings.emailLabel),
                   ),
-                  SizedBox(height: screenHeight * 0.02),
+                  SizedBox(height: 16.h),
                   TextField(
                     controller: passwordController,
                     decoration: const InputDecoration(labelText: AppStrings.passwordLabel),
                     obscureText: true,
                   ),
-                  SizedBox(height: screenHeight * 0.03),
+                  SizedBox(height: 24.h),
                   state is LoginLoading
                       ? const LoadingWidget()
                       : ElevatedButton(
@@ -71,8 +69,7 @@ class _LoginViewState extends State<LoginView> {
                                   ),
                                 );
                           },
-                          child: Text(AppStrings.loginButton),
-                
+                          child: const Text(AppStrings.loginButton),
                   ),
                 ],
               ),

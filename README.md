@@ -82,3 +82,8 @@ Development
 Production
   `flutter build apk -t lib/main_production.dart`. 
 
+# Firebase Notification  
+ - To add notifications in your project uncommment firebase notification initialization code from main file
+ - In firebase notifications class uncomment options and use yours from google.gson file
+ - Add google.json from firebase
+

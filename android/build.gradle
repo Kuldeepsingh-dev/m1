@@ -1,3 +1,20 @@
+// (Optional) buildscript {} block
+buildscript {
+    ext.kotlin_version = '2.0.0'
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'com.google.gms:google-services:4.4.3'
+    }
+}
+
+// (Optional) pluginManagement {} block
+
+// plugins {} block
+plugins {
+    id 'com.google.gms.google-services' version '4.4.3' apply false
+}
+
+// Now, all other code can go here
 allprojects {
     repositories {
         google()

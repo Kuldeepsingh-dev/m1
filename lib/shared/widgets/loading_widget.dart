@@ -16,7 +16,7 @@ Future<void> showAppLoading(BuildContext context) async {
   return showDialog(
     context: context,
     barrierDismissible: false,
-    barrierColor: Colors.black.withOpacity(0.2), // Transparent overlay
+    barrierColor: Colors.black.withOpacity(0.2),
     builder: (_) => const LoadingWidget(),
   );
 }

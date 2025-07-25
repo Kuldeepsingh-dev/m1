@@ -16,7 +16,6 @@ import 'package:m1/features/auth/login/bloc/login_state.dart';
 import 'package:m1/core/services/api_service.dart';
 import 'package:m1/core/services/device_info_service.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MockApiService extends Mock implements ApiService {}
 class MockDeviceInfoService extends Mock implements DeviceInfoService {}
