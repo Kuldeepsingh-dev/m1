@@ -14,7 +14,7 @@ import 'core/services/device_info_service.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'core/config/locale.dart'; 
-import 'core/firebase/firebase_notifications.dart';
+// import 'core/firebase/firebase_notifications.dart';
 
 Future<void> mainCommon({required AppEnvironment env}) async {
   Env.setEnvironment(env); 

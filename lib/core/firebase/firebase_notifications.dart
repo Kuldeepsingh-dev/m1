@@ -12,11 +12,11 @@ class FirebaseNotificationService {
     // Initialize Firebase
     await Firebase.initializeApp(
       // options:  const FirebaseOptions(
-      //   apiKey: 'AIzaSyDriWe6m5CsCk4gL6dOwHYCX00BsIsFFhM',
-      //   appId: '1:942894414911:android:e191d166cc650a6c450c8a',
-      //   messagingSenderId: '942894414911',
-      //   projectId: 'notification-52c3d',
-      //   storageBucket: 'notification-52c3d.firebasestorage.app',
+      //   apiKey: '',
+      //   appId: '',
+      //   messagingSenderId: '',
+      //   projectId: '',
+      //   storageBucket: '',
       // )
     );
 
