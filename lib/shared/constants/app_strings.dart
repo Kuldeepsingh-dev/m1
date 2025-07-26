@@ -5,7 +5,7 @@ class AppStrings {
   static const cancel = 'Cancel';
 
   // Auth
-  static const loginTitle = 'Login';
+  static const loginTitle = 'loginTitle';
   static const emailLabel = 'Email';
   static const passwordLabel = 'Password';
   static const loginButton = 'Login';

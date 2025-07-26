@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:m1/core/bloc/locale_bloc.dart';
 import 'package:m1/core/bloc/theme_bloc.dart';
 import 'core/services/service_locator.dart';
@@ -12,13 +12,13 @@ import 'core/bloc/app_bloc_providers.dart';
 import 'shared/widgets/error_screen.dart';
 import 'core/services/device_info_service.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'core/config/locale.dart'; 
 // import 'core/firebase/firebase_notifications.dart';
 
 Future<void> mainCommon({required AppEnvironment env}) async {
   Env.setEnvironment(env); 
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await setupServiceLocator();
   
 
@@ -38,12 +38,17 @@ Future<void> mainCommon({required AppEnvironment env}) async {
   }
 
   runApp(
-    ScreenUtilInit(
-      designSize: const Size(375, 812), 
-      minTextAdapt: true,
-      builder: (context, child) => MultiBlocProvider(
-        providers: appBlocProviders,
-        child: MyApp(env: env),
+    EasyLocalization(
+      supportedLocales: supportedLocales,
+      path: 'assets/translations',
+      fallbackLocale: defaultLocale,
+      child: ScreenUtilInit(
+        designSize: const Size(375, 812), 
+        minTextAdapt: true,
+        builder: (context, child) => MultiBlocProvider(
+          providers: appBlocProviders,
+          child: MyApp(env: env),
+        ),
       ),
     ),
   );
@@ -66,13 +71,8 @@ class MyApp extends StatelessWidget {
               darkTheme: darkTheme,
               themeMode: themeState.isDark ? ThemeMode.dark : ThemeMode.light,
               locale: localeState.locale,
-              supportedLocales: supportedLocales, 
-              localizationsDelegates: const [ 
-                AppLocalizations.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
+              supportedLocales: context.supportedLocales,
+              localizationsDelegates: context.localizationDelegates,
               routerConfig: router,
               debugShowCheckedModeBanner: env != AppEnvironment.production,
             );

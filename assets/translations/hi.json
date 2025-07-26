@@ -1,0 +1,20 @@
+{
+  "loginTitle": "लॉगिन",
+  "appTitle": "Flutter Boilerplate Project",
+  "emailLabel": "ईमेल",
+  "passwordLabel": "पासवर्ड",
+  "loginButton": "लॉगिन",
+  "saveButton": "सहेजें",
+  "cancelButton": "रद्द करें",
+  "okButton": "ठीक है",
+  "deleteButton": "हटाएं",
+  "editButton": "संपादित करें",
+  "submitButton": "सबमिट करें",
+  "retryButton": "पुनः प्रयास करें",
+  "loadingText": "लोड हो रहा है...",
+  "welcomeMessage": "हमारे ऐप में आपका स्वागत है!",
+  "loginSuccess": "लॉगिन सफल!",
+  "loginError": "लॉगिन विफल। कृपया पुनः प्रयास करें।",
+  "noInternet": "इंटरनेट कनेक्शन नहीं",
+  "unknownError": "कुछ गलत हो गया।"
+}

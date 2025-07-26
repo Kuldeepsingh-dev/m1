@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:m1/core/bloc/locale_bloc.dart';
 import 'package:m1/core/bloc/theme_bloc.dart';
 import 'package:m1/shared/constants/app_strings.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:m1/shared/widgets/app_text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,9 +28,9 @@ class HomeScreen extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  context.read<LocaleBloc>().add(CycleLocaleEvent());
+                  context.read<LocaleBloc>().add(CycleLocaleEvent(context));
                 },
-                child: Text(AppLocalizations.of(context)!.loginTitle),
+                child: AppText(text: 'loginTitle'),
               ),
           ],
         ),
